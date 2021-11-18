@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>SuperView WebView</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Template styles -->
+    <style rel="stylesheet">
+        /* TEMPLATE STYLES */
+        
+        main {
+            margin-top: 3rem;
+        }
+        
+        main .card {
+            margin-bottom: 2rem;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .read-more {
+                text-align: center;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<main>
+    <!--Main layout-->
+    <div class="container">
+
+        <!--Third column-->
+        <div class="col-md-16">
+
+            <!--Card-->
+            <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                    <!--Title-->
+                    <h4 class="card-title">Hello Instant Apps</h4>
+                    <!--Text-->
+                    <p class="card-text">Instant apps are a great way to introduce users to native apps experience without the need of installation. App fragments called features can be downloaded quickly thanks to their size limitation. Our service collects all applications in one place. </p>
+                    <div class="read-more">
+                        <a href="https://play.google.com/store/apps/collection/promotion_300308f_instantgames" class="btn btn-primary">Games</a>
+                        <a href="https://play.google.com/store/apps/collection/promotion_3002d0f_instantapps_featuredapps" class="btn btn-primary">Apps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Card content-->
+
+
+
+        <!--Second row-->
+        <div class="row">
+            <!--First column-->
+            <div class="col-md-16">
+                <!--Card-->
+                <div class="card">
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">HELP</h4>
+                        <!--Text-->
+                        <p class="card-text">Enable Instant App :  Settings -> Google -> Instant App</p>
+                        <div class="read-more">
+                            <a href="https://youtu.be/V_rRU7gbnmM" class="btn btn-primary">Video Tutorial</a>
+                        </div>
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+            </div>
+        </div>
+        <!--/.Second row-->
+        <hr>
+
+    </div>
+    <!--/.Main layout-->
+</main>
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+<script type="text/javascript">
+        function getFirebaseToken() {
+             alert(android.getFirebaseToken());
+        }
+
+        function getOneSignalToken() {
+             alert("RegisterId:" + android.getOneSignalRegisteredId() );
+        }
+
+        function isProductPurchased() {
+            alert(android.isProductPurchased());
+        }
+
+        function createNotification(display, message) {
+            android.createNotification(display, message);
+        }
+
+        function showLoader() {
+            android.showLoader();
+        }
+
+        function hideLoader() {
+            android.hideLoader();
+        }
+
+        function fontSizeNormal() {
+            android.fontSizeNormal();
+        }
+
+        function fontSizeLarger() {
+            android.fontSizeLarger();
+        }
+
+
+        function fontSizeLargest() {
+            android.fontSizeLargest();
+        }
+
+        function fontSizeSmaller() {
+            android.fontSizeSmaller();
+        }
+
+       function fontSizeSmallest() {
+            android.fontSizeSmallest();
+       }
+
+       function rateApp() {
+            android.rateApp();
+       }
+
+        function playSong() {
+            android.playSound("beep");
+       }
+
+       function locationTracker(longitude, latitude) {
+            var message = longitude + "," + latitude;
+            console.log(message);
+       }
+
+        var currentFont = 2;
+        var fontSizeFunc = [fontSizeSmallest, fontSizeSmaller, fontSizeNormal, fontSizeLarger, fontSizeLargest]
+
+       function fontDec() {
+            if (currentFont > 0) {
+                currentFont--;
+            }
+            fontSizeFunc[currentFont]();
+       }
+
+       function fontInc() {
+            if (currentFont < 4) {
+                currentFont++;
+            }
+            fontSizeFunc[currentFont]();
+       }
+
+       function ajaxRequest(){
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://restcountries.eu/rest/v2/all');
+            xhr.send(null);
+            xhr.onreadystatechange = function () {
+              var DONE = 4; // readyState 4 means the request is done.
+              var OK = 200; // status 200 is a successful return.
+              if (xhr.readyState === DONE) {
+                if (xhr.status === OK)
+                     alert(xhr.responseText);
+                }
+              }
+        };
+    </script>
+</body>
+</html>
